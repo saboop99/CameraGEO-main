@@ -1,12 +1,20 @@
 package com.facens.myapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.location.Location;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +29,47 @@ public class MainActivity extends AppCompatActivity {
         btnGeo = (Button) findViewById(R.id.btn_gps);
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 123);
 
+        btnGeo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                GPStracker g = new GPStracker(getApplication());
+                Location l = g.getLocation();
+
+                if(l != null){
+                    double lat = l.getLatitude();
+                    double lon = l.getLongitude();
+                    Toast.makeText(getApplicationContext(), "LATITUDE:" +lat+ "/nLONGITUDE:" +lon, Toast.LENGTH_LONG).show();
+                }
+            }
+
+        });
+        //
+        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 0);
+        }
+        //
+        ImageViewFoto = (ImageView) findViewById(R.id.image_foto);
+        findViewById(R.id.btn_camera).setOnClickListener(new View.OnClickListener(){
+            //
+            @Override
+            public void onClick(View view){ tirarFoto();}
+        });
 
     }
+    //
+    private void tirarFoto(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, 1);
+    }
+    //
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        if(requestCode == 1 && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap imagem = (Bitmap) extras.get("data");
+            ImageViewFoto.setImageBitmap(imagem);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 }

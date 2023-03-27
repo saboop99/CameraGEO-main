@@ -43,27 +43,28 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        //
+        //Condicional para checagem da permissão do Android para o uso da Camera
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 0);
         }
-        //
+        //utilizando o ImageView para adicionar imagem no app, setando para achar a imagem por Id
         ImageViewFoto = (ImageView) findViewById(R.id.image_foto);
         findViewById(R.id.btn_camera).setOnClickListener(new View.OnClickListener(){
-            //
+            //Sobrescrever o código, acontece toda vez que se chama um método que está dentro de alguma outra classe, como forma de verificação após mudanças
             @Override
             public void onClick(View view){ tirarFoto();}
         });
 
     }
-    //
+    //Criação do método para tirar a foto, e embaixo os comandos necessários para a captura da imagem
     private void tirarFoto(){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 1);
     }
-    //
+    //Mais uma sobrescrição antes do método
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        //Condicional para "setar" a imagem como um bitmap, que define a imagem com base em pixels
         if(requestCode == 1 && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
             Bitmap imagem = (Bitmap) extras.get("data");

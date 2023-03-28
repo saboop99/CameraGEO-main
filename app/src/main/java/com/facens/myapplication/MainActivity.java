@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //utilizando o ImageView para adicionar imagem no app, setando para achar a imagem por Id
         ImageViewFoto = (ImageView) findViewById(R.id.image_foto);
         findViewById(R.id.btn_camera).setOnClickListener(new View.OnClickListener(){
-            //Sobrescrever o código, acontece toda vez que se chama um método que está dentro de alguma outra classe, como forma de verificação após mudanças
+            //Sobrescrever o código, acontece toda vez que se chama um método que está dentro de alguma outra classe, como forma de verificação após mudanças (Nesse caso é o método para tirar foto)
             @Override
             public void onClick(View view){ tirarFoto();}
         });

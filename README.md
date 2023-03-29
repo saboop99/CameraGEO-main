@@ -45,4 +45,5 @@ https://github.com/saboop99/CameraGEO-main
 ## Pré-requisitos ⚠️
 
 Android 10.0; SDK 29; moto E(7)
+
 Necessário uma câmera instalada e um sistema de GPS

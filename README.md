@@ -1,3 +1,2 @@
 # AndroidCamera
- Camera no Android
- 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 (token)
+ Versão: 1.0

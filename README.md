@@ -36,6 +36,7 @@ Aplicação que captura imagens e também informa a Geolocalização do aparelho
 
 ## Funcionalidades ⚙️:
 ✔️ Captura de imagens (foto)
+
 ✔️ informação da Geolocalização do aparelho
 
 ## Distribuição

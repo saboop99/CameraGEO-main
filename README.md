@@ -1,9 +1,9 @@
- ## Android CameraGEO
+ # Android CameraGEO
  ## Versão: 1.0
  
- # Status do Projeto: ⚠️Espera 
+ ## Status do Projeto: ⚠️Espera 
  
- # Tópicos:
+ ## Tópicos:
  
 🔹 [Descrição do projeto[(
 
@@ -31,17 +31,17 @@
 
 🔹 Informações Extras
 
-# Descrição do projeto:
+## Descrição do projeto:
 Aplicação que captura imagens e também informa a Geolocalização do aparelho
 
-# Funcionalidades ⚙️:
+## Funcionalidades ⚙️:
 ✔️ Captura de imagens (foto)
 ✔️ informação da Geolocalização do aparelho
 
-# Distribuição
+## Distribuição
 https://github.com/saboop99/CameraGEO-main
 
-# Pré-requisitos ⚠️
+## Pré-requisitos ⚠️
 
 Android 10.0; SDK 29; moto E(7)
 Necessário uma câmera instalada e um sistema de GPS
